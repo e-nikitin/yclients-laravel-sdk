@@ -28,7 +28,7 @@ If you don't use auto-discovery, add the ServiceProvider to the providers array 
 ...
 ```
 
-**Set configs/yclients-laravel-sdk**
+**Set configs\yclients-laravel-sdk**
 
 ``` php
 'accounts' => [
@@ -43,7 +43,7 @@ If you don't use auto-discovery, add the ServiceProvider to the providers array 
    ],
 ]
 ```
-**Obtain TOKENS**
+## Obtain TOKENS
 
 **Bearer token** can be recived from yclients support.
 
