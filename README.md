@@ -1,3 +1,7 @@
+[![Latest Stable Version](https://poser.pugx.org/nikitin/yclients-laravel-sdk/v/stable)](https://packagist.org/packages/nikitin/yclients-laravel-sdk)
+[![Total Downloads](https://poser.pugx.org/nikitin/yclients-laravel-sdk/downloads)](https://packagist.org/packages/nikitin/yclients-laravel-sdk)
+[![License](https://poser.pugx.org/nikitin/yclients-laravel-sdk/license)](https://packagist.org/packages/nikitin/yclients-laravel-sdk)
+
 # Laravel YClients SDK
 
 
