@@ -27,63 +27,63 @@ class YClientsSDK extends AbstractYClientsSDK
     /**
      * @return Companies
      */
-    public function getCompanies(){
+    public function companies(){
         return new Companies;
     }
 
     /**
      * @return Services
      */
-    public function getServices(){
+    public function services(){
         return new Services;
     }
 
     /**
      * @return Staff
      */
-    public function getStaff(){
+    public function staff(){
         return new Staff;
     }
 
     /**
      * @return ServiceCategory
      */
-    public function getServiceCategory(){
+    public function serviceCategory(){
         return new ServiceCategory;
     }
 
     /**
      * @return Records
      */
-    public function getRecords(){
+    public function records(){
         return new Records;
     }
 
     /**
      * @return Goods
      */
-    public function getGoods(){
+    public function goods(){
         return new Goods;
     }
 
     /**
      * @return Clients
      */
-    public function getClients(){
+    public function clients(){
         return new Clients;
     }
 
     /**
      * @return Visits
      */
-    public function getVisits(){
+    public function visits(){
         return new Visits;
     }
 
     /**
      * @return Salons
      */
-    public function getSalons(){
+    public function salons(){
         return new Salons;
     }
 

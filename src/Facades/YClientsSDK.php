@@ -19,15 +19,15 @@ use nikitin\YClientsSDK\Requests\Visits\Visits;
  * @package nikitin\YClientsSDK\Facades
  *
  * @method static Authorization authorization
- * @method static Companies getCompanies
- * @method static Services getServices
- * @method static Staff getStaff
- * @method static ServiceCategory getServiceCategory
- * @method static Records getRecords
- * @method static Goods getGoods
- * @method static Clients getClients
- * @method static Visits getVisits
- * @method static Salons getSalons
+ * @method static Companies companies
+ * @method static Services services
+ * @method static Staff staff
+ * @method static ServiceCategory serviceCategory
+ * @method static Records records
+ * @method static Goods goods
+ * @method static Clients clients
+ * @method static Visits visits
+ * @method static Salons salons
  */
 class YClientsSDK extends Facade
 {
