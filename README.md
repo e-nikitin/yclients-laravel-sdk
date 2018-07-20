@@ -55,7 +55,7 @@ To obtain **user token** set login, password and bearer token in configs and run
     YClientsSDK::authorization()->get() // return USER TOKEN
 ```
 
-**Supported API methods**
+## Supported API methods
   - Authorization
   - Clients
   - Companies
