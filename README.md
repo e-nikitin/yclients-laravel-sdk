@@ -68,7 +68,7 @@ To obtain **user token** set login, password and bearer token in configs and run
   - Visits
     - VisitDetails
 
-## Usage
+## Examples
 
 **Clients**
 ``` php
