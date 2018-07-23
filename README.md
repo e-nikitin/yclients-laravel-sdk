@@ -34,7 +34,7 @@ If you don't use auto-discovery, add the ServiceProvider to the providers array 
 'accounts' => [
      'default' => [
      // Login and password are required to receive USER TOKEN. 
-     // If you have these then you do not have to fill in these fields
+     // If you have them you do not have to fill in these fields
      'login' => '',
      'password' => '',
       // Used in all requests and is mandatory
