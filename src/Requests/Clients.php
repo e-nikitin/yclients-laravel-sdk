@@ -11,7 +11,7 @@ class Clients extends Request
 
     protected function request()
     {
-        return $this->requestApi("records/{$this->company_id}");
+        return $this->requestApi("clients/{$this->company_id}");
     }
 
 }
