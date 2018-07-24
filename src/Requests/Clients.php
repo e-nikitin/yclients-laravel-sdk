@@ -32,13 +32,16 @@ class Clients extends Request
     {
         while (true) {
             $result = $this->get();
-            $data = $result->get('data');
+            $data = collect($result->get('data'));
             $nextPage = $result->get('next_page');
-            if (empty($data))
+
+            if ($data->isEmpty())
                 break;
             $function($data);
+
             if (empty($nextPage))
                 break;
+
             $this->setPage($nextPage);
         }
     }
@@ -50,6 +53,7 @@ class Clients extends Request
         if (!is_array($this->pages)) {
             $this->pages = [$this->pages];
         }
+
         $params['count'] = $this->countOnPage;
 
         $result = [];
@@ -59,14 +63,15 @@ class Clients extends Request
         foreach ($this->pages as $page) {
             $params['page'] = $page;
             $url = "clients/{$this->company_id}";
-            $tmp = $this->requestApi($url, $params);
 
+            $tmp = $this->requestApi($url, $params);
             $result['count'] = $tmp->get('count');
             $result['data'][] = $tmp->get('data');
         }
 
         $result['data'] = collect($result['data'])->collapse()->all();
         $result['next_page'] = $this->countNextData($result['count']);
+
         return collect($result);
     }
 
@@ -78,8 +83,10 @@ class Clients extends Request
     {
         $countPages = (int)round($countClients / $this->countOnPage, 0, PHP_ROUND_HALF_UP);
         $currPage = last($this->pages);
+
         if ($currPage >= $countPages)
             return null;
+
         return ++$currPage;
 
     }
