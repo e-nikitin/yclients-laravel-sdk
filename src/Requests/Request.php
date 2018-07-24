@@ -4,8 +4,12 @@ namespace nikitin\YClientsSDK\Requests;
 
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Pool;
+use function GuzzleHttp\Promise\settle;
+use function GuzzleHttp\Promise\unwrap;
 use Illuminate\Support\Collection;
 use nikitin\YClientsSDK\Exceptions\RequestException;
+use Psr\Http\Message\ResponseInterface;
 
 abstract class Request
 {
@@ -20,7 +24,9 @@ abstract class Request
     protected $userToken;
 
 
-    public function __construct(){}
+    public function __construct()
+    {
+    }
 
     // Execute request to yclients api
     abstract protected function request();
@@ -29,7 +35,7 @@ abstract class Request
      * @return Collection
      * @throws RequestException
      */
-    public function get()
+    public final function get()
     {
         $this->setAccountSettings();
 
@@ -45,16 +51,17 @@ abstract class Request
      * @param string $account
      * @return $this
      */
-    public function on(string $account){
+    public function on(string $account)
+    {
         $this->account = $account;
         return $this;
     }
 
-
     /**
+     * @param bool $auth
      * @return Client
      */
-    protected final function getHttpClient($auth = true)
+    private function getHttpClient($auth = true)
     {
 
         $authorization = "Bearer {$this->bearerToken}";
@@ -99,19 +106,19 @@ abstract class Request
         return collect(json_decode($r->getBody()->getContents(), true));
     }
 
-
     /**
      * @throws \Exception
      */
-    protected final function setAccountSettings(){
+    private function setAccountSettings()
+    {
 
-        if (empty(config('yclients-laravel-sdk.accounts.'.$this->account)))
-            throw new \Exception('Account '.$this->account.' is not exists in configuration');
+        if (empty(config('yclients-laravel-sdk.accounts.' . $this->account)))
+            throw new \Exception('Account ' . $this->account . ' is not exists in configuration');
         //Auth
-        $this->login = config('yclients-laravel-sdk.accounts.'.$this->account.'.login');
-        $this->password = config('yclients-laravel-sdk.accounts.'.$this->account.'.password');
-        $this->bearerToken = config('yclients-laravel-sdk.accounts.'.$this->account.'.bearer_token');
-        $this->userToken = config('yclients-laravel-sdk.accounts.'.$this->account.'.user_token');
+        $this->login = config('yclients-laravel-sdk.accounts.' . $this->account . '.login');
+        $this->password = config('yclients-laravel-sdk.accounts.' . $this->account . '.password');
+        $this->bearerToken = config('yclients-laravel-sdk.accounts.' . $this->account . '.bearer_token');
+        $this->userToken = config('yclients-laravel-sdk.accounts.' . $this->account . '.user_token');
     }
 
 
