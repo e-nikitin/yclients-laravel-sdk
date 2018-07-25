@@ -4,10 +4,12 @@ namespace nikitin\YClientsSDK\Requests;
 
 use Carbon\Carbon;
 use nikitin\YClientsSDK\Requests\Traits\Company;
+use nikitin\YClientsSDK\Requests\Traits\Paginated;
 
 class Records extends Request
 {
-    use Company;
+    use Company, Paginated;
+
 
     /**
      * @var Carbon
@@ -20,13 +22,19 @@ class Records extends Request
     }
 
 
-
     protected function request()
     {
         $params = [];
         if ($this->changedAfter)
             $params['changed_after'] = $this->changedAfter;
 
-        return $this->requestApi("records/{$this->company_id}", $params);
+        if (!is_array($this->pages)) {
+            $this->pages = [$this->pages];
+        }
+
+        $params['count'] = $this->countOnPage;
+        $url = "records/{$this->company_id}";
+
+        return $this->paginateRequest($url, $params);
     }
 }
