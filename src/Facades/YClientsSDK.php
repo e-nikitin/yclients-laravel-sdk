@@ -12,6 +12,7 @@ use nikitin\YClientsSDK\Requests\Salons;
 use nikitin\YClientsSDK\Requests\ServiceCategory;
 use nikitin\YClientsSDK\Requests\Services;
 use nikitin\YClientsSDK\Requests\Staff;
+use nikitin\YClientsSDK\Requests\Visits\VisitDetails;
 use nikitin\YClientsSDK\Requests\Visits\Visits;
 
 /**
@@ -27,6 +28,7 @@ use nikitin\YClientsSDK\Requests\Visits\Visits;
  * @method static Goods goods
  * @method static Clients clients
  * @method static Visits visits
+ * @method static VisitDetails visitDetails
  * @method static Salons salons
  */
 class YClientsSDK extends Facade

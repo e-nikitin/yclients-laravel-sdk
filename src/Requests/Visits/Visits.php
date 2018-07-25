@@ -13,13 +13,6 @@ class Visits extends Request
         return $this;
     }
 
-    /**
-     * @return VisitDetails
-     */
-    public function details(){
-        return new VisitDetails;
-    }
-
     protected function request()
     {
         return $this->requestApi("visits/{$this->visitId}");

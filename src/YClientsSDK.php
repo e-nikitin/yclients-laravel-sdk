@@ -13,6 +13,7 @@ use nikitin\YClientsSDK\Requests\Salons;
 use nikitin\YClientsSDK\Requests\ServiceCategory;
 use nikitin\YClientsSDK\Requests\Services;
 use nikitin\YClientsSDK\Requests\Staff;
+use nikitin\YClientsSDK\Requests\Visits\VisitDetails;
 use nikitin\YClientsSDK\Requests\Visits\Visits;
 
 class YClientsSDK extends AbstractYClientsSDK
@@ -78,6 +79,13 @@ class YClientsSDK extends AbstractYClientsSDK
      */
     public function visits(){
         return new Visits;
+    }
+
+    /**
+     * @return VisitDetails
+     */
+    public function visitDetails(){
+        return new VisitDetails();
     }
 
     /**

@@ -126,7 +126,7 @@ $visits = YClientsSDK::visits()->setVisitId($visitId)->get();
 ``` php
 use nikitin\YClientsSDK\Facades\YClientsSDK;
 ...
-$visitDetails = YClientsSDK::visits()->details()->setVisitId($visitId)->setSalonId($salonId)->setRecordId($recordId)->get();
+$visitDetails = YClientsSDK::visitDetails()->setVisitId($visitId)->setSalonId($salonId)->setRecordId($recordId)->get();
 ```
 
 
