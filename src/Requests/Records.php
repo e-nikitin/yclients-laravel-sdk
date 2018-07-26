@@ -10,7 +10,6 @@ class Records extends Request
 {
     use Company, Paginated;
 
-
     /**
      * @var Carbon
      */
@@ -28,13 +27,6 @@ class Records extends Request
         if ($this->changedAfter)
             $params['changed_after'] = $this->changedAfter;
 
-        if (!is_array($this->pages)) {
-            $this->pages = [$this->pages];
-        }
-
-        $params['count'] = $this->countOnPage;
-        $url = "records/{$this->company_id}";
-
-        return $this->paginateRequest($url, $params);
+        return $this->paginateRequest("records/{$this->company_id}", $params);
     }
 }

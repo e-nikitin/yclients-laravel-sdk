@@ -13,6 +13,7 @@ use nikitin\YClientsSDK\Requests\Salons;
 use nikitin\YClientsSDK\Requests\ServiceCategory;
 use nikitin\YClientsSDK\Requests\Services;
 use nikitin\YClientsSDK\Requests\Staff;
+use nikitin\YClientsSDK\Requests\Transactions\TransactionsByFilter;
 use nikitin\YClientsSDK\Requests\Visits\VisitDetails;
 use nikitin\YClientsSDK\Requests\Visits\Visits;
 
@@ -93,6 +94,13 @@ class YClientsSDK extends AbstractYClientsSDK
      */
     public function salons(){
         return new Salons;
+    }
+
+    /**
+     * @return TransactionsByFilter
+     */
+    public function transactionsByFilter(){
+        return new TransactionsByFilter;
     }
 
 }

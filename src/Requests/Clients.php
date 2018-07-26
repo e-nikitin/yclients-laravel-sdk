@@ -13,16 +13,7 @@ class Clients extends Request
 
     protected function request()
     {
-        $params = [];
-
-        if (!is_array($this->pages)) {
-            $this->pages = [$this->pages];
-        }
-
-        $params['count'] = $this->countOnPage;
-        $url = "clients/{$this->company_id}";
-
-        return $this->paginateRequest($url, $params);
+        return $this->paginateRequest("clients/{$this->company_id}");
     }
 
 

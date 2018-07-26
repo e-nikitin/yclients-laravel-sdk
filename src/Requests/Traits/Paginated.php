@@ -12,7 +12,7 @@ trait Paginated
      * @param int $countOnPage
      * @return $this
      */
-    public function setCountOnPage(int $countOnPage)
+    public function setCountOnPage($countOnPage)
     {
         $this->countOnPage = $countOnPage;
         return $this;
@@ -33,23 +33,30 @@ trait Paginated
      */
     public function each(callable $function)
     {
+        $page = 1;
         while (true) {
             $result = $this->get();
             $data = collect($result->get('data'));
-            $nextPage = $result->get('next_page');
+
+            $nextPage = ++$page;
 
             if ($data->isEmpty())
                 break;
-            $function($data);
 
-            if (empty($nextPage))
-                break;
+            $function($data);
 
             $this->setPage($nextPage);
         }
     }
 
-    protected function paginateRequest($url, $params){
+    protected function paginateRequest($url, $params = [], $method='get', $auth=true){
+
+        if (!is_array($this->pages)) {
+            $this->pages = [$this->pages];
+        }
+
+        $params['count'] = $this->countOnPage;
+
         $result = [];
         $result['count'] = 0;
         $result['data'] = [];
@@ -57,9 +64,15 @@ trait Paginated
         foreach ($this->pages as $page) {
             $params['page'] = $page;
 
-            $tmp = $this->requestApi($url, $params);
+            $tmp = $this->requestApi($url, $params, $method, $auth);
             $result['count'] = $tmp->get('count');
-            $result['data'][] = $tmp->get('data');
+
+            $data = $tmp->get('data');
+            if (empty($data))
+                $data = $tmp;
+
+
+            $result['data'][] = $data;
         }
 
         $result['data'] = collect($result['data'])->collapse()->all();
