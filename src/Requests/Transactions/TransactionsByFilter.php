@@ -68,8 +68,13 @@ class TransactionsByFilter extends Request
         return $this;
     }
 
-    public function setDeleted($deleted){
-        $this->params['deleted'] = $deleted;
+    public function isDeleted(){
+        $this->params['deleted'] = 1;
+        return $this;
+    }
+
+    public function isNotDeleted(){
+        $this->params['deleted'] = 0;
         return $this;
     }
 
