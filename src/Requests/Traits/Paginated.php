@@ -40,7 +40,7 @@ trait Paginated
 
             $nextPage = ++$page;
 
-            if ($data->isEmpty())
+            if ($data->count() == 0)
                 break;
 
             $function($data);
