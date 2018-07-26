@@ -54,9 +54,10 @@ trait Paginated
         if (!is_array($this->pages)) {
             $this->pages = [$this->pages];
         }
+        $this->params['count'] = $this->countOnPage;
 
         $result = [];
-        $result['count'] = 0;
+        $result['count'] = null;
         $result['data'] = [];
 
         foreach ($this->pages as $page) {
