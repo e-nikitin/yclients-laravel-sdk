@@ -3,7 +3,7 @@
 namespace nikitin\YClientsSDK\Requests;
 
 
-class Salons extends Request
+class Groups extends Request
 {
     protected function request()
     {

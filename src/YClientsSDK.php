@@ -9,7 +9,7 @@ use nikitin\YClientsSDK\Requests\Clients;
 use nikitin\YClientsSDK\Requests\Companies;
 use nikitin\YClientsSDK\Requests\Goods;
 use nikitin\YClientsSDK\Requests\Records;
-use nikitin\YClientsSDK\Requests\Salons;
+use nikitin\YClientsSDK\Requests\Groups;
 use nikitin\YClientsSDK\Requests\ServiceCategory;
 use nikitin\YClientsSDK\Requests\Services;
 use nikitin\YClientsSDK\Requests\Staff;
@@ -90,10 +90,10 @@ class YClientsSDK extends AbstractYClientsSDK
     }
 
     /**
-     * @return Salons
+     * @return Groups
      */
-    public function salons(){
-        return new Salons;
+    public function groups(){
+        return new Groups;
     }
 
     /**

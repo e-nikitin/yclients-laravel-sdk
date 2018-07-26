@@ -95,12 +95,12 @@ use nikitin\YClientsSDK\Facades\YClientsSDK;
 ...
 $records = YClientsSDK::records()->setCompany($companyId)->setChangedAfter(Carbon::today())->get();
 ```
-**Salons**
+**Groups**
 
 ``` php
 use nikitin\YClientsSDK\Facades\YClientsSDK;
 ...
-$salons = YClientsSDK::salons()->get();
+$salons = YClientsSDK::groups()->get();
 ```
 **ServiceCategory**
 
