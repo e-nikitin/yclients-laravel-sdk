@@ -40,7 +40,7 @@ trait Paginated
 
             $nextPage = ++$page;
 
-            if ($data->count() == 0)
+            if ($data->isEmpty())
                 break;
 
             $function($data);
@@ -66,7 +66,7 @@ trait Paginated
             $result['count'] = $tmp->get('count');
 
             $data = $tmp->get('data');
-            if (empty($data))
+            if (!$tmp->has('data'))
                 $data = $tmp;
 
             $result['data'][] = $data;
