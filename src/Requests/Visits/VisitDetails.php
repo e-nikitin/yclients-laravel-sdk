@@ -7,12 +7,12 @@ use nikitin\YClientsSDK\Requests\Request;
 
 class VisitDetails extends Request
 {
-    protected $salonId;
+    protected $groupId;
     protected $recordId;
     protected $visitId;
 
-    public function setSalonId($salonId){
-        $this->salonId = $salonId;
+    public function setGroupId($groupId){
+        $this->groupId = $groupId;
         return $this;
     }
 
@@ -28,6 +28,6 @@ class VisitDetails extends Request
 
     protected function request()
     {
-        return $this->requestApi("visit/details/{$this->salonId}/{$this->recordId}/{$this->visitId}");
+        return $this->requestApi("visit/details/{$this->groupId}/{$this->recordId}/{$this->visitId}");
     }
 }

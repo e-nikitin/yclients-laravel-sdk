@@ -14,7 +14,7 @@ trait Paginated
      */
     public function setCountOnPage($countOnPage)
     {
-        $this->countOnPage = $countOnPage;
+        $this->params['count'] = $countOnPage;
         return $this;
     }
 
@@ -49,28 +49,24 @@ trait Paginated
         }
     }
 
-    protected function paginateRequest($url, $params = [], $method='get', $auth=true){
+    protected function paginateRequest($url, $method='get', $auth=true){
 
         if (!is_array($this->pages)) {
             $this->pages = [$this->pages];
         }
-
-        $params['count'] = $this->countOnPage;
 
         $result = [];
         $result['count'] = 0;
         $result['data'] = [];
 
         foreach ($this->pages as $page) {
-            $params['page'] = $page;
-
-            $tmp = $this->requestApi($url, $params, $method, $auth);
+            $this->params['page'] = $page;
+            $tmp = $this->requestApi($url, $method, $auth);
             $result['count'] = $tmp->get('count');
 
             $data = $tmp->get('data');
             if (empty($data))
                 $data = $tmp;
-
 
             $result['data'][] = $data;
         }

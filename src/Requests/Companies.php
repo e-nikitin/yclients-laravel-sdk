@@ -9,17 +9,13 @@ class Companies extends Request
 
     protected $salonId;
 
-    public function setSalonId($salonId){
-        $this->salonId = $salonId;
+    public function setGroupId($groupId){
+        $this->params['group_id'] = $groupId;
         return $this;
     }
 
     protected function request()
     {
-        $params = [];
-        if ($this->salonId)
-            $params['group_id'] = $this->salonId;
-
-        return $this->requestApi('companies', $params, 'get', false);
+        return $this->requestApi('companies', 'get', false);
     }
 }

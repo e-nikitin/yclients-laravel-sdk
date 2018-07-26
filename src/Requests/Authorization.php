@@ -8,7 +8,7 @@ class Authorization extends Request
 
     protected function request()
     {
-        $data = $this->requestApi('auth',[], 'post', false);
+        $data = $this->requestApi('auth', 'post', false);
         return $data->get('user_token', null);
     }
 }

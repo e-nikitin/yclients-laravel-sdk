@@ -11,7 +11,7 @@ class Services extends Request
 
     protected function request()
     {
-        return $this->requestApi("services/{$this->company_id}",[]);
+        return $this->requestApi("services/{$this->company_id}");
     }
 
 }

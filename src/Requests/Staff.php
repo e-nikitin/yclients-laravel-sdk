@@ -10,7 +10,7 @@ class Staff extends Request
 
     protected function request()
     {
-        return $this->requestApi("staff/{$this->company_id}",[]);
+        return $this->requestApi("staff/{$this->company_id}");
     }
 
 }

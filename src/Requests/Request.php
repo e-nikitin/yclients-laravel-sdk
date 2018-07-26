@@ -14,14 +14,16 @@ use Psr\Http\Message\ResponseInterface;
 abstract class Request
 {
 
-    protected $host = 'https://api.yclients.com/api/v1/';
+    private $host = 'https://api.yclients.com/api/v1/';
 
-    protected $account = 'default';
+    private $account = 'default';
     // Auth
-    protected $login;
-    protected $password;
-    protected $bearerToken;
-    protected $userToken;
+    private $login;
+    private $password;
+    private $bearerToken;
+    private $userToken;
+
+    protected $params = [];
 
 
     public function __construct()
@@ -78,18 +80,17 @@ abstract class Request
 
     /**
      * @param $url
-     * @param array $params
      * @param string $method
      * @param bool $auth
      * @return \Illuminate\Support\Collection
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    protected final function requestApi($url, $params = [], $method = 'get', $auth = true)
+    protected final function requestApi($url, $method = 'get', $auth = true)
     {
         $method = strtolower($method);
 
         $options = [];
-        $options['query'] = $params;
+        $options['query'] = $this->params;
 
         //
         if (strtolower($url) == 'auth') {
@@ -105,6 +106,7 @@ abstract class Request
 
         return collect(json_decode($r->getBody()->getContents(), true));
     }
+
 
     /**
      * @throws \Exception

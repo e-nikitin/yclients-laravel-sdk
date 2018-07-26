@@ -19,6 +19,6 @@ class Goods extends Request
 
     protected function request()
     {
-        return $this->requestApi("goods/{$this->company_id}/{$this->goodId}", []);
+        return $this->requestApi("goods/{$this->company_id}/{$this->goodId}");
     }
 }
