@@ -7,6 +7,7 @@ use nikitin\YClientsSDK\Requests\Authorization;
 use nikitin\YClientsSDK\Requests\Clients;
 use nikitin\YClientsSDK\Requests\Companies;
 use nikitin\YClientsSDK\Requests\Goods;
+use nikitin\YClientsSDK\Requests\GoodsTransactions\TransactionsSearch;
 use nikitin\YClientsSDK\Requests\Records;
 use nikitin\YClientsSDK\Requests\Groups;
 use nikitin\YClientsSDK\Requests\ServiceCategory;
@@ -32,6 +33,7 @@ use nikitin\YClientsSDK\Requests\Visits\Visits;
  * @method static VisitDetails visitDetails
  * @method static Groups groups
  * @method static TransactionsByFilter transactionsByFilter
+ * @method static TransactionsSearch goodsTransactionsSearch
  */
 class YClientsSDK extends Facade
 {

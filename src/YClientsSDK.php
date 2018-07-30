@@ -8,6 +8,7 @@ use nikitin\YClientsSDK\Requests\Authorization;
 use nikitin\YClientsSDK\Requests\Clients;
 use nikitin\YClientsSDK\Requests\Companies;
 use nikitin\YClientsSDK\Requests\Goods;
+use nikitin\YClientsSDK\Requests\GoodsTransactions\TransactionsSearch;
 use nikitin\YClientsSDK\Requests\Records;
 use nikitin\YClientsSDK\Requests\Groups;
 use nikitin\YClientsSDK\Requests\ServiceCategory;
@@ -101,6 +102,13 @@ class YClientsSDK extends AbstractYClientsSDK
      */
     public function transactionsByFilter(){
         return new TransactionsByFilter;
+    }
+
+    /**
+     * @return TransactionsSearch
+     */
+    public function goodsTransactionsSearch(){
+        return new TransactionsSearch;
     }
 
 }
