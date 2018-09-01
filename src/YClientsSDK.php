@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use nikitin\YClientsSDK\Requests\Authorization;
 use nikitin\YClientsSDK\Requests\Clients;
 use nikitin\YClientsSDK\Requests\Companies;
+use nikitin\YClientsSDK\Requests\Documents;
 use nikitin\YClientsSDK\Requests\Goods;
 use nikitin\YClientsSDK\Requests\GoodsTransactions\TransactionsSearch;
 use nikitin\YClientsSDK\Requests\Records;
@@ -109,6 +110,13 @@ class YClientsSDK extends AbstractYClientsSDK
      */
     public function goodsTransactionsSearch(){
         return new TransactionsSearch;
+    }
+
+    /**
+     * @return Documents
+     */
+    public function documents(){
+        return new Documents;
     }
 
 }
