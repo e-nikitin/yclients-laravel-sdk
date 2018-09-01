@@ -12,6 +12,7 @@ use nikitin\YClientsSDK\Requests\Goods;
 use nikitin\YClientsSDK\Requests\GoodsTransactions\TransactionsSearch;
 use nikitin\YClientsSDK\Requests\Records;
 use nikitin\YClientsSDK\Requests\Groups;
+use nikitin\YClientsSDK\Requests\Seances;
 use nikitin\YClientsSDK\Requests\ServiceCategory;
 use nikitin\YClientsSDK\Requests\Services;
 use nikitin\YClientsSDK\Requests\Staff;
@@ -117,6 +118,13 @@ class YClientsSDK extends AbstractYClientsSDK
      */
     public function documents(){
         return new Documents;
+    }
+
+    /**
+     * @return Seances
+     */
+    public function seances(){
+        return new Seances;
     }
 
 }

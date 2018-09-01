@@ -11,6 +11,7 @@ use nikitin\YClientsSDK\Requests\Goods;
 use nikitin\YClientsSDK\Requests\GoodsTransactions\TransactionsSearch;
 use nikitin\YClientsSDK\Requests\Records;
 use nikitin\YClientsSDK\Requests\Groups;
+use nikitin\YClientsSDK\Requests\Seances;
 use nikitin\YClientsSDK\Requests\ServiceCategory;
 use nikitin\YClientsSDK\Requests\Services;
 use nikitin\YClientsSDK\Requests\Staff;
@@ -36,6 +37,7 @@ use nikitin\YClientsSDK\Requests\Visits\Visits;
  * @method static TransactionsByFilter transactionsByFilter
  * @method static TransactionsSearch goodsTransactionsSearch
  * @method static Documents documents
+ * @method static Seances seances
  */
 class YClientsSDK extends Facade
 {

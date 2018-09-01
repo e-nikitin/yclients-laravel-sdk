@@ -1,15 +1,24 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nikit
- * Date: 01.09.2018
- * Time: 23:31
- */
+
 
 namespace nikitin\YClientsSDK\Requests\Traits;
 
 
+use Carbon\Carbon;
+
 trait Date
 {
+    /**
+     * @var string
+     */
+    protected $date;
 
+    /**
+     * @param Carbon $date
+     * @return $this
+     */
+    public function setDate(Carbon $date){
+        $this->date = $date->toDateString();
+        return $this;
+    }
 }
