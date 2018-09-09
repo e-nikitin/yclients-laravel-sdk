@@ -56,7 +56,7 @@ abstract class Request
      */
     public function on($account)
     {
-        if (!is_string($account) || !is_array($account))
+        if (!is_string($account) && !is_array($account))
             throw new \Exception('Argument account must be string or array');
         $this->account = $account;
         return $this;
