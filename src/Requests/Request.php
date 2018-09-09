@@ -50,11 +50,14 @@ abstract class Request
     }
 
     /**
-     * @param string $account
+     * @param string | array $account
      * @return $this
+     * @throws \Exception
      */
-    public function on(string $account)
+    public function on($account)
     {
+        if (!is_string($account) || !is_array($account))
+            throw new \Exception('Argument account must be string or array');
         $this->account = $account;
         return $this;
     }
@@ -111,16 +114,23 @@ abstract class Request
     /**
      * @throws \Exception
      */
-    private function setAccountSettings()
+    private function setAccountSettings() : void
     {
+        if (is_array($this->account)){
+            $this->login = array_get($this->account, 'login');
+            $this->password = array_get($this->account, 'password');
+            $this->bearerToken = array_get($this->account, 'bearer_token');
+            $this->userToken = array_get($this->account, 'user_token');
+        }else {
+            if (empty(config('yclients-laravel-sdk.accounts.' . $this->account)))
+                throw new \Exception('Account ' . $this->account . ' is not exists in configuration');
+            //Auth
+            $this->login = config('yclients-laravel-sdk.accounts.' . $this->account . '.login');
+            $this->password = config('yclients-laravel-sdk.accounts.' . $this->account . '.password');
+            $this->bearerToken = config('yclients-laravel-sdk.accounts.' . $this->account . '.bearer_token');
+            $this->userToken = config('yclients-laravel-sdk.accounts.' . $this->account . '.user_token');
+        }
 
-        if (empty(config('yclients-laravel-sdk.accounts.' . $this->account)))
-            throw new \Exception('Account ' . $this->account . ' is not exists in configuration');
-        //Auth
-        $this->login = config('yclients-laravel-sdk.accounts.' . $this->account . '.login');
-        $this->password = config('yclients-laravel-sdk.accounts.' . $this->account . '.password');
-        $this->bearerToken = config('yclients-laravel-sdk.accounts.' . $this->account . '.bearer_token');
-        $this->userToken = config('yclients-laravel-sdk.accounts.' . $this->account . '.user_token');
     }
 
 
