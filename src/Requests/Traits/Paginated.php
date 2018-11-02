@@ -35,7 +35,13 @@ trait Paginated
     {
         $page = 1;
         while (true) {
-            $result = $this->get();
+
+            try {
+                $result = $this->get();
+            }catch (\Exception $e){
+                $result = $this->get();
+            }
+
             $data = collect($result->get('data'));
 
             $nextPage = ++$page;
