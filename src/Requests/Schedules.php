@@ -7,7 +7,7 @@ use nikitin\YClientsSDK\Requests\Traits\Company;
 use nikitin\YClientsSDK\Requests\Traits\Staff;
 
 
-class Schedule extends Request
+class Schedules extends Request
 {
     use Company, Staff;
 

@@ -12,6 +12,7 @@ use nikitin\YClientsSDK\Requests\Goods;
 use nikitin\YClientsSDK\Requests\GoodsTransactions\TransactionsSearch;
 use nikitin\YClientsSDK\Requests\Records;
 use nikitin\YClientsSDK\Requests\Groups;
+use nikitin\YClientsSDK\Requests\Schedules;
 use nikitin\YClientsSDK\Requests\Seances;
 use nikitin\YClientsSDK\Requests\ServiceCategory;
 use nikitin\YClientsSDK\Requests\Services;
@@ -125,6 +126,13 @@ class YClientsSDK extends AbstractYClientsSDK
      */
     public function seances(){
         return new Seances;
+    }
+
+    /**
+     * @return Schedules
+     */
+    public function schedules(){
+        return new Schedules;
     }
 
 }
