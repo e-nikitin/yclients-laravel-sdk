@@ -4,10 +4,11 @@ namespace nikitin\YClientsSDK\Requests;
 
 
 use nikitin\YClientsSDK\Requests\Traits\Company;
+use nikitin\YClientsSDK\Requests\Traits\PaginatedWithoutCount;
 
 class Goods extends Request
 {
-    use Company;
+    use Company, PaginatedWithoutCount;
 
     protected $goodId;
 
@@ -19,6 +20,6 @@ class Goods extends Request
 
     protected function request()
     {
-        return $this->requestApi("goods/{$this->company_id}/{$this->goodId}");
+        return $this->paginateRequest("goods/{$this->company_id}/{$this->goodId}");
     }
 }
