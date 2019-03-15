@@ -4,8 +4,11 @@
 namespace nikitin\YClientsSDK\Requests;
 
 
+use nikitin\YClientsSDK\Requests\Traits\PaginatedWithoutCount;
+
 class Companies extends Request
 {
+    use PaginatedWithoutCount;
 
     public function setGroupId($groupId){
         $this->params['group_id'] = $groupId;
@@ -14,6 +17,6 @@ class Companies extends Request
 
     protected function request()
     {
-        return $this->requestApi('companies', 'get', false);
+        return $this->paginateRequest('companies', 'get', false);
     }
 }
