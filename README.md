@@ -9,7 +9,7 @@
 ## Install
 
 ``` bash
-$ composer require nikitin/yclients-laravel-sdk
+$ composer require e-nikitin/yclients-laravel-sdk
 ```
 
 **Publish config file**
