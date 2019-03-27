@@ -52,7 +52,10 @@ trait PaginatedWithoutCount
             if ($data->isEmpty())
                 break;
 
-            $function($data);
+            $r = $function($data);
+            if ($r === false)
+                break;
+
 
             $this->setPage($nextPage);
         }
