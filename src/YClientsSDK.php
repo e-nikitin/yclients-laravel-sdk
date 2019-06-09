@@ -20,6 +20,7 @@ use nikitin\YClientsSDK\Requests\Staff;
 use nikitin\YClientsSDK\Requests\Transactions\TransactionsByFilter;
 use nikitin\YClientsSDK\Requests\Visits\VisitDetails;
 use nikitin\YClientsSDK\Requests\Visits\Visits;
+use nikitin\YClientsSDK\Requests\ZReport;
 
 class YClientsSDK extends AbstractYClientsSDK
 {
@@ -133,6 +134,13 @@ class YClientsSDK extends AbstractYClientsSDK
      */
     public function schedules(){
         return new Schedules;
+    }
+
+    /**
+     * @return ZReport
+     */
+    public function zReport(){
+        return new ZReport;
     }
 
 }

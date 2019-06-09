@@ -19,6 +19,7 @@ use nikitin\YClientsSDK\Requests\Staff;
 use nikitin\YClientsSDK\Requests\Transactions\TransactionsByFilter;
 use nikitin\YClientsSDK\Requests\Visits\VisitDetails;
 use nikitin\YClientsSDK\Requests\Visits\Visits;
+use nikitin\YClientsSDK\Requests\ZReport;
 
 /**
  * Class YClientsSDK
@@ -40,6 +41,7 @@ use nikitin\YClientsSDK\Requests\Visits\Visits;
  * @method static Documents documents
  * @method static Seances seances
  * @method static Schedules schedules
+ * @method static ZReport zReport
  */
 class YClientsSDK extends Facade
 {
