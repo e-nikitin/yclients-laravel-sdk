@@ -1,8 +1,6 @@
 <?php
 
-
 namespace nikitin\YClientsSDK\Requests;
-
 
 use nikitin\YClientsSDK\Requests\Traits\PaginatedWithoutCount;
 
@@ -16,10 +14,10 @@ class Companies extends Request
         $this->params['show_groups'] = 1;
     }
 
-
     /**
-     * @return \Illuminate\Support\Collection
      * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return \Illuminate\Support\Collection
      */
     protected function request()
     {

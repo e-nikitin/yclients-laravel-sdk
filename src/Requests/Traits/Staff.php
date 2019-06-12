@@ -2,7 +2,6 @@
 
 namespace nikitin\YClientsSDK\Requests\Traits;
 
-
 trait Staff
 {
     /**
@@ -12,11 +11,13 @@ trait Staff
 
     /**
      * @param int $staffId
+     *
      * @return $this
      */
-    public function setStaffId($staffId){
+    public function setStaffId($staffId)
+    {
         $this->staffId = $staffId;
+
         return $this;
     }
-
 }

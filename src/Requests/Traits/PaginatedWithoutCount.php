@@ -2,7 +2,6 @@
 
 namespace nikitin\YClientsSDK\Requests\Traits;
 
-
 trait PaginatedWithoutCount
 {
     protected $countOnPage = 300;
@@ -10,25 +9,28 @@ trait PaginatedWithoutCount
 
     /**
      * @param int $countOnPage
+     *
      * @return $this
      */
     public function setCountOnPage($countOnPage)
     {
         $this->countOnPage = $countOnPage;
         $this->params['count'] = $countOnPage;
+
         return $this;
     }
 
     /**
      * @param array|string $pageNumber
+     *
      * @return $this
      */
     public function setPage($pageNumber)
     {
         $this->pages = $pageNumber;
+
         return $this;
     }
-
 
     /**
      * @param callable $function
@@ -38,10 +40,9 @@ trait PaginatedWithoutCount
         $page = 1;
         $this->setPage($page);
         while (true) {
-
             try {
                 $result = $this->get();
-            }catch (\Exception $e){
+            } catch (\Exception $e) {
                 $result = $this->get();
             }
 
@@ -49,13 +50,14 @@ trait PaginatedWithoutCount
 
             $nextPage = ++$page;
 
-            if ($data->isEmpty())
+            if ($data->isEmpty()) {
                 break;
+            }
 
             $r = $function($data);
-            if ($r === false)
+            if ($r === false) {
                 break;
-
+            }
 
             $this->setPage($nextPage);
         }
@@ -64,11 +66,12 @@ trait PaginatedWithoutCount
     /**
      * @param $url
      * @param string $method
-     * @param bool $auth
+     * @param bool   $auth
+     *
      * @return \Illuminate\Support\Collection
      */
-    protected function paginateRequest($url, $method='get', $auth=true){
-
+    protected function paginateRequest($url, $method = 'get', $auth = true)
+    {
         if (!is_array($this->pages)) {
             $this->pages = [$this->pages];
         }
@@ -81,7 +84,7 @@ trait PaginatedWithoutCount
         foreach ($this->pages as $page) {
             $this->params['page'] = $page;
             $tmp = $this->requestApi($url, $method, $auth);
-            
+
             $result['data'][] = $tmp;
         }
 
@@ -89,7 +92,4 @@ trait PaginatedWithoutCount
 
         return collect($result);
     }
-
-   
-
 }

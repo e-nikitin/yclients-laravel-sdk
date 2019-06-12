@@ -9,8 +9,8 @@ use nikitin\YClientsSDK\Requests\Companies;
 use nikitin\YClientsSDK\Requests\Documents;
 use nikitin\YClientsSDK\Requests\Goods;
 use nikitin\YClientsSDK\Requests\GoodsTransactions\TransactionsSearch;
-use nikitin\YClientsSDK\Requests\Records;
 use nikitin\YClientsSDK\Requests\Groups;
+use nikitin\YClientsSDK\Requests\Records;
 use nikitin\YClientsSDK\Requests\Schedules;
 use nikitin\YClientsSDK\Requests\Seances;
 use nikitin\YClientsSDK\Requests\ServiceCategory;
@@ -22,8 +22,7 @@ use nikitin\YClientsSDK\Requests\Visits\Visits;
 use nikitin\YClientsSDK\Requests\ZReport;
 
 /**
- * Class YClientsSDK
- * @package nikitin\YClientsSDK\Facades
+ * Class YClientsSDK.
  *
  * @method static Authorization authorization
  * @method static Companies companies
@@ -49,5 +48,4 @@ class YClientsSDK extends Facade
     {
         return \nikitin\YClientsSDK\YClientsSDK::class;
     }
-
 }
