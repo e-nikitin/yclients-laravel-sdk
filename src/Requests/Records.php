@@ -15,11 +15,12 @@ class Records extends Request
      */
     protected $changedAfter;
 
-    public function setChangedAfter(Carbon $changedAfter){
-         $this->params['changed_after'] = $changedAfter->format('Y-m-d\TH:i:s');
-         return $this;
-    }
+    public function setChangedAfter(Carbon $changedAfter)
+    {
+        $this->params['changed_after'] = $changedAfter->format('Y-m-d\TH:i:s');
 
+        return $this;
+    }
 
     protected function request()
     {

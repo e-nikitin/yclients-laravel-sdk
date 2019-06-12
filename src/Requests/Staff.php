@@ -12,5 +12,4 @@ class Staff extends Request
     {
         return $this->requestApi("staff/{$this->company_id}");
     }
-
 }

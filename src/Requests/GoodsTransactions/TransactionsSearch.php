@@ -2,7 +2,6 @@
 
 namespace nikitin\YClientsSDK\Requests\GoodsTransactions;
 
-
 use nikitin\YClientsSDK\Requests\Request;
 use nikitin\YClientsSDK\Requests\Traits\Company;
 use nikitin\YClientsSDK\Requests\Traits\DatesPeriod;
@@ -17,5 +16,4 @@ class TransactionsSearch extends Request
     {
         return $this->paginateRequest("storages/transactions/{$this->company_id}");
     }
-
 }

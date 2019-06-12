@@ -2,7 +2,6 @@
 
 namespace nikitin\YClientsSDK\Requests;
 
-
 use nikitin\YClientsSDK\Requests\Traits\Company;
 
 class Documents extends Request
@@ -13,21 +12,23 @@ class Documents extends Request
 
     /**
      * @param $documentId
+     *
      * @return $this
      */
-    public function setDocumentId($documentId){
+    public function setDocumentId($documentId)
+    {
         $this->documentId = $documentId;
+
         return $this;
     }
 
-
     /**
-     * @return \Illuminate\Support\Collection
      * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return \Illuminate\Support\Collection
      */
     protected function request()
     {
         return $this->requestApi("storage_operations/documents/{$this->company_id}/{$this->documentId}");
     }
-
 }

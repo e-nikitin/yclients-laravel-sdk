@@ -1,8 +1,6 @@
 <?php
 
-
 namespace nikitin\YClientsSDK\Requests\Traits;
-
 
 use Carbon\Carbon;
 
@@ -15,10 +13,13 @@ trait Date
 
     /**
      * @param Carbon $date
+     *
      * @return $this
      */
-    public function setDate(Carbon $date){
+    public function setDate(Carbon $date)
+    {
         $this->date = $date->toDateString();
+
         return $this;
     }
 }

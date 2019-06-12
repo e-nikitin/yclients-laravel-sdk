@@ -8,8 +8,8 @@ class ServiceCategory extends Request
 {
     use Company;
 
-    protected function request(){
+    protected function request()
+    {
         return $this->requestApi("service_categories/{$this->company_id}");
     }
-
 }

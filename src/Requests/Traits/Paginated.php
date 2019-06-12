@@ -2,7 +2,6 @@
 
 namespace nikitin\YClientsSDK\Requests\Traits;
 
-
 trait Paginated
 {
     protected $countOnPage = 300;
@@ -10,21 +9,25 @@ trait Paginated
 
     /**
      * @param int $countOnPage
+     *
      * @return $this
      */
     public function setCountOnPage($countOnPage)
     {
         $this->params['count'] = $countOnPage;
+
         return $this;
     }
 
     /**
      * @param array|string $pageNumber
+     *
      * @return $this
      */
     public function setPage($pageNumber)
     {
         $this->pages = $pageNumber;
+
         return $this;
     }
 
@@ -35,10 +38,9 @@ trait Paginated
     {
         $page = 1;
         while (true) {
-
             try {
                 $result = $this->get();
-            }catch (\Exception $e){
+            } catch (\Exception $e) {
                 $result = $this->get();
             }
 
@@ -46,8 +48,9 @@ trait Paginated
 
             $nextPage = ++$page;
 
-            if ($data->isEmpty())
+            if ($data->isEmpty()) {
                 break;
+            }
 
             $function($data);
 
@@ -55,8 +58,8 @@ trait Paginated
         }
     }
 
-    protected function paginateRequest($url, $method='get', $auth=true){
-
+    protected function paginateRequest($url, $method = 'get', $auth = true)
+    {
         if (!is_array($this->pages)) {
             $this->pages = [$this->pages];
         }
@@ -72,8 +75,9 @@ trait Paginated
             $result['count'] = $tmp->get('count');
 
             $data = $tmp->get('data');
-            if (!$tmp->has('data'))
+            if (!$tmp->has('data')) {
                 $data = $tmp;
+            }
 
             $result['data'][] = $data;
         }
@@ -86,18 +90,18 @@ trait Paginated
 
     /**
      * @param int $countAllItems
+     *
      * @return mixed|null
      */
     protected function countNextData($countAllItems)
     {
-        $countPages = (int)round($countAllItems / $this->countOnPage, 0, PHP_ROUND_HALF_UP);
+        $countPages = (int) round($countAllItems / $this->countOnPage, 0, PHP_ROUND_HALF_UP);
         $currPage = last($this->pages);
 
-        if ($currPage >= $countPages)
-            return null;
+        if ($currPage >= $countPages) {
+            return;
+        }
 
         return ++$currPage;
-
     }
-
 }

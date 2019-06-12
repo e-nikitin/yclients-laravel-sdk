@@ -2,7 +2,6 @@
 
 namespace nikitin\YClientsSDK\Requests;
 
-
 use nikitin\YClientsSDK\Requests\Traits\Company;
 
 class Services extends Request
@@ -13,5 +12,4 @@ class Services extends Request
     {
         return $this->requestApi("services/{$this->company_id}");
     }
-
 }

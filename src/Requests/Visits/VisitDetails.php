@@ -1,6 +1,5 @@
 <?php
 
-
 namespace nikitin\YClientsSDK\Requests\Visits;
 
 use nikitin\YClientsSDK\Requests\Request;
@@ -11,18 +10,24 @@ class VisitDetails extends Request
     protected $recordId;
     protected $visitId;
 
-    public function setGroupId($groupId){
+    public function setGroupId($groupId)
+    {
         $this->groupId = $groupId;
+
         return $this;
     }
 
-    public function setRecordId($recordId){
+    public function setRecordId($recordId)
+    {
         $this->recordId = $recordId;
+
         return $this;
     }
 
-    public function setVisitId($visitId){
+    public function setVisitId($visitId)
+    {
         $this->visitId = $visitId;
+
         return $this;
     }
 

@@ -2,7 +2,6 @@
 
 namespace nikitin\YClientsSDK\Requests;
 
-
 use nikitin\YClientsSDK\Requests\Traits\Company;
 use nikitin\YClientsSDK\Requests\Traits\PaginatedWithoutCount;
 
@@ -12,11 +11,12 @@ class Goods extends Request
 
     protected $goodId;
 
-    public function setGoodId($goodId){
+    public function setGoodId($goodId)
+    {
         $this->goodId = $goodId;
+
         return $this;
     }
-
 
     protected function request()
     {
