@@ -162,7 +162,8 @@ class YClientsSDK extends AbstractYClientsSDK
     /**
      * @return Storages
      */
-    public function storages(){
+    public function storages()
+    {
         return new Storages();
     }
 }
