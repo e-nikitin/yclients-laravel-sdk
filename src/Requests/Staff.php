@@ -9,8 +9,9 @@ class Staff extends Request
     use Company;
 
     /**
-     * @return \Illuminate\Support\Collection
      * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return \Illuminate\Support\Collection
      */
     protected function request()
     {
