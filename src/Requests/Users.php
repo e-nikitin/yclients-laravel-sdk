@@ -1,10 +1,12 @@
 <?php
 
+
 namespace nikitin\YClientsSDK\Requests;
+
 
 use nikitin\YClientsSDK\Requests\Traits\Company;
 
-class Staff extends Request
+class Users extends Request
 {
     use Company;
 
@@ -14,6 +16,7 @@ class Staff extends Request
      */
     protected function request()
     {
-        return $this->requestApi("staff/{$this->company_id}");
+        return $this->requestApi("company_users/{$this->company_id}");
     }
+
 }
