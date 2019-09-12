@@ -17,6 +17,7 @@ use nikitin\YClientsSDK\Requests\Services;
 use nikitin\YClientsSDK\Requests\Staff;
 use nikitin\YClientsSDK\Requests\Storages;
 use nikitin\YClientsSDK\Requests\Transactions\TransactionsByFilter;
+use nikitin\YClientsSDK\Requests\Users;
 use nikitin\YClientsSDK\Requests\Visits\VisitDetails;
 use nikitin\YClientsSDK\Requests\Visits\Visits;
 use nikitin\YClientsSDK\Requests\ZReport;
@@ -165,5 +166,13 @@ class YClientsSDK extends AbstractYClientsSDK
     public function storages()
     {
         return new Storages();
+    }
+
+    /**
+     * @return Users
+     */
+    public function users()
+    {
+        return new Users();
     }
 }
