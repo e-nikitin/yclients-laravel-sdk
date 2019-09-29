@@ -22,6 +22,15 @@ class Records extends Request
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function includeFinanceTransactions()
+    {
+        $this->params['include_finance_transactions'] = 1;
+        return $this;
+    }
+
     protected function request()
     {
         return $this->paginateRequest("records/{$this->company_id}");
