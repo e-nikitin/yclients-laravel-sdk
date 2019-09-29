@@ -28,6 +28,7 @@ class Records extends Request
     public function includeFinanceTransactions()
     {
         $this->params['include_finance_transactions'] = 1;
+
         return $this;
     }
 
