@@ -117,10 +117,10 @@ abstract class Request
     private function setAccountSettings() : void
     {
         if (is_array($this->account)) {
-            $this->login = array_get($this->account, 'login');
-            $this->password = array_get($this->account, 'password');
-            $this->bearerToken = array_get($this->account, 'bearer_token');
-            $this->userToken = array_get($this->account, 'user_token');
+            $this->login = isset($this->account['login']) ? $this->account['login'] : null;
+            $this->password =  isset($this->account['password']) ? $this->account['password'] : null;
+            $this->bearerToken = isset($this->account['bearer_token']) ? $this->account['bearer_token'] : null;
+            $this->userToken = isset($this->account['user_token']) ? $this->account['user_token'] : null;
         } else {
             if (empty(config('yclients-laravel-sdk.accounts.'.$this->account))) {
                 throw new \Exception('Account '.$this->account.' is not exists in configuration');
